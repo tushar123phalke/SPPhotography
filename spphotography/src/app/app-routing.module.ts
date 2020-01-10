@@ -1,8 +1,32 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { AlbumComponent } from './album/album.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [{
+  path: '',
+  component: HomeComponent
+}, {
+  path: 'album',
+  component: AlbumComponent
+}, {
+  path: 'aboutus',
+  component: AboutUsComponent
+}, {
+  path: 'contact',
+  component: ContactComponent
+}, {
+  path: 'page-not-fount',
+  component: PageNotFoundComponent
+}, {
+  path: '**',
+  redirectTo: 'page-not-fount',
+  pathMatch: 'full'
+}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

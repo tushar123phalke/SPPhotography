@@ -1,12 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, AfterViewInit } from '@angular/core';
 import { IMasonryGalleryImage } from 'ngx-masonry-gallery';
+import { HostListener } from "@angular/core";
+
+// import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'sp-album',
   templateUrl: './album.component.html',
   styleUrls: ['./album.component.scss']
 })
-export class AlbumComponent implements OnInit {
+export class AlbumComponent implements OnInit, AfterViewInit{
+  public imageClick: EventEmitter<IMasonryGalleryImage>;
+  public selectedImageUrl: string;
+  public isPopupDisplay: boolean;
+  screenHeight: number;
+  screenWidth: number;
+
   private urls = [{
     picture: 'https://source.unsplash.com/433x649/?Uruguay'
   },
@@ -307,9 +316,35 @@ export class AlbumComponent implements OnInit {
   {
     picture: 'https://source.unsplash.com/594x443/?Chad'
   }];
-  constructor() { }
+  constructor() {
+    this.screenHeight = window.innerHeight ;
+    this.screenWidth = window.innerWidth / 4;
+  }
 
   ngOnInit() {
+
+  }
+
+  // @HostListener('window:resize', ['$event'])
+  // getScreenSize(event?) {
+  //       this.screenHeight = window.innerHeight ;
+  //       this.screenWidth = window.innerWidth / 4;
+  //       console.log(this.screenHeight, this.screenWidth);
+  // }
+
+  popupCloseHandler() {
+    this.isPopupDisplay = false;
+  }
+
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+
+  }
+
+  onImageClickHandler(e: IMasonryGalleryImage) {
+    this.selectedImageUrl = e.imageUrl;
+    this.isPopupDisplay = true;
   }
 
 public get images(): IMasonryGalleryImage[] {

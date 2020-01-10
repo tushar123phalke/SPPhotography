@@ -1,1 +1,28 @@
-<p>popup works!</p>
+<div id="page-top" data-aos-easing="ease" data-aos-duration="200" data-aos-delay="0" class="mfp-zoom-out-cur">
+  <div class="mfp-bg mfp-module-gallery disable-context-menu mfp-ready"></div>
+  <div class="mfp-wrap mfp-gallery mfp-module-gallery disable-context-menu mfp-ready" tabindex="-1" style="overflow: hidden auto;">
+     <div class="mfp-container mfp-s-ready mfp-image-holder">
+        <div class="mfp-content">
+           <div class="mfp-figure">
+              <div class="mfp-close"></div>
+              <img class="mfp-img" alt="" src="{{ imageUrl }}" style="max-height: 1208px;">
+              <div class="mfp-bottom-bar fancy-scrollbar">
+                 <div class="mfp-title">
+                    <div class="gallery-image-text"></div>
+                    <div class="gallery-social-links">
+                       <a href="https://www.facebook.com/sharer/sharer.php?u={{imageUrl}}" title="Share on Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                       <a href="https://twitter.com/intent/tweet?source={{imageUrl}}" target="_blank" title="Tweet"><i class="fa fa-twitter"></i></a>
+                       <a href="https://pinterest.com/pin/create/button/?url={{imageUrl}}" target="_blank" title="Pin it"><i class="fa fa-pinterest"></i></a>
+                    </div>
+                 </div>
+                 <div class="mfp-counter">1 of 14</div>
+                 <span class="mfp-caption-close" style="display: none;"><i class="fa fa-times"></i></span>
+              </div>
+           </div>
+        </div>
+        <div class="mfp-preloader">Loading...</div>
+        <button title="Previous (Left arrow key)" type="button" class="mfp-arrow mfp-arrow-left mfp-prevent-close"></button><button title="Next (Right arrow key)" type="button" class="mfp-arrow mfp-arrow-right mfp-prevent-close"></button>
+     </div>
+     <button title="Close (Esc)" (click)="hidePopup()" type="button" class="mfp-close">×</button>
+  </div>
+</div>

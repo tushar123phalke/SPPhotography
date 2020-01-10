@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'sp-popup',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./popup.component.scss']
 })
 export class PopupComponent implements OnInit {
+  @Input() imageUrl: string;
+  @Output() closePopup: EventEmitter<boolean> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  hidePopup() {
+    this.closePopup.emit(true);
   }
 
 }
